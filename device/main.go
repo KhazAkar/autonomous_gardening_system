@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"backend"
 )
 
 func main() {
-	fmt.Println("Hello!")
+	backend.MqttClient()
 }
