@@ -46,7 +46,7 @@ func connectToMqttServer() MQTT.Client {
 	}
 
 	opts := MQTT.NewClientOptions()
-	opts.AddBroker(fmt.Sprintf("ssl://%s:%s", broker, port))
+	opts.AddBroker(fmt.Sprintf("tls://%s:%s", broker, port))
 	opts.SetTLSConfig(tlsConfig)
 
 	client := MQTT.NewClient(opts)
