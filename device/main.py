@@ -1,11 +1,11 @@
-
+from falcon.asgi import App
 import falcon
 
-class DeviceResource:
-    def on_get(self, req, resp):
+class HelloWorld:
+    async def on_get(self, req, resp):
+        resp.media = {'message': 'Hello, world!'}
+        resp.content_type = 'application/json'
         resp.status = falcon.HTTP_200
-        resp.body = 'Hello from device!'
 
-
-if __name__ == "__main__":
-    main()
+app = App()
+app.add_route('/', HelloWorld())
