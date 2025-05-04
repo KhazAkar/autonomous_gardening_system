@@ -1,8 +1,0 @@
-FROM go:1.24-alpine AS builder
-WORKDIR /app
-COPY . .
-RUN go build -o /app/main .
-FROM scratch
-USER user
-COPY  --from=builder --chown=user:user /app/main /main
-CMD ["./main"]
